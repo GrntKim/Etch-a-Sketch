@@ -8,17 +8,26 @@ function drawGrid(gridNum) {
     for(let i=0; i<gridNum*gridNum; i++) {
         const cell = document.createElement('div');
         cell.classList.add('cell');
+        cell.dataset.hoverConunt = 0;
+
         cell.addEventListener('mouseover', () => {
-            cell.style.backgroundColor = 'black';
+            let hoverConunt = Number(cell.dataset.hoverConunt);
+            if (hoverConunt < 10) hoverConunt++;
+
+            cell.dataset.hoverConunt = hoverConunt;
+            cell.style.backgroundColor = `rgba(0, 0, 0, ${hoverConunt/10})`;
         });
         grid.appendChild(cell);
+
     }
 }
 
 document.querySelector('.resize-button').addEventListener('click', () => {
     const input = prompt('Enter new size (1~100)');
 
-    if(input === '' || Number.isNaN(Number(input))) {
+    if (input === null) return;
+
+    if (input === '' || Number.isNaN(Number(input))) {
         alert('Pleast enter a number');
         return;
     } 
@@ -35,5 +44,7 @@ document.querySelector('.resize-button').addEventListener('click', () => {
 });
 
 document.querySelector('.reset-button').addEventListener('click', () => drawGrid(gridSize));
+
+
 
 drawGrid(gridSize);
