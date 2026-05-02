@@ -44,7 +44,7 @@ document.querySelector('.resize-button').addEventListener('click', () => {
 });
 
 document.querySelector('.reset-button').addEventListener('click', () => {
-    if (confirm('Are you sure want to reset the canvas?'))
+    if (confirm('Are you sure you want to reset the canvas?'))
         drawGrid(gridSize)
 });
 
