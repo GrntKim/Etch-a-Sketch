@@ -1,0 +1,21 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: min(640px, 90vw);
+    aspect-ratio: 1 / 1;
+    border: 1px solid black;
+}
+
+.cell {
+    box-sizing: border-box;
+    width: calc(100% / var(--grid-size));
+    aspect-ratio: 1 / 1;
+    border: 1px solid black;
+}
