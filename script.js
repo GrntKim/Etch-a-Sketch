@@ -27,8 +27,8 @@ document.querySelector('.resize-button').addEventListener('click', () => {
 
     if (input === null) return;
 
-    if (input === '' || Number.isNaN(Number(input))) {
-        alert('Pleast enter a number');
+    if (input.trim() === '' || Number.isNaN(Number(input))) {
+        alert('Please enter a number');
         return;
     } 
 
