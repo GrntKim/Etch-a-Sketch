@@ -1,6 +1,7 @@
 const grid = document.querySelector('.grid');
 
 function drawGrid(gridNum) {
+    grid.textContent = '';
     grid.style.setProperty('--grid-size', gridNum);
     for(let i=0; i<gridNum*gridNum; i++) {
         const cell = document.createElement('div');
@@ -12,4 +13,11 @@ function drawGrid(gridNum) {
     }
 }
 
-drawGrid(64);
+drawGrid(16);
+
+document.querySelector('.resize-button').addEventListener('click', () => {
+    const input = prompt('Enter new size');
+    if(input === null || input === '') return;
+    const newSize = Number(input);
+    drawGrid(newSize);
+});
