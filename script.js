@@ -16,9 +16,21 @@ function drawGrid(gridNum) {
 }
 
 document.querySelector('.resize-button').addEventListener('click', () => {
-    const input = prompt('Enter new size');
-    if(input === null || input === '') return;
-    gridSize = Number(input);
+    const input = prompt('Enter new size (1~100)');
+
+    if(input === '' || Number.isNaN(Number(input))) {
+        alert('Pleast enter a number');
+        return;
+    } 
+
+    const newGridSize = Number(input);
+
+    if (newGridSize <= 0 || newGridSize > 100) {
+        alert('Out of limit (1~100)');
+        return;
+    }
+
+    gridSize = newGridSize;
     drawGrid(gridSize);
 });
 
