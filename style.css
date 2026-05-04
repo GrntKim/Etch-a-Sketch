@@ -8,6 +8,7 @@ body {
 }
 
 .grid {
+    box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
     width: min(640px, 90vw);

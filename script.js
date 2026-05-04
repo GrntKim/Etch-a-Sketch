@@ -15,7 +15,10 @@ function drawGrid(gridNum) {
             if (hoverCount < 10) hoverCount++;
 
             cell.dataset.hoverCount = hoverCount;
-            cell.style.backgroundColor = `rgba(0, 0, 0, ${hoverCount/10})`;
+            const randomR = Math.floor(Math.random()*256);
+            const randomG = Math.floor(Math.random()*256);
+            const randomB = Math.floor(Math.random()*256);
+            cell.style.backgroundColor = `rgba(${randomR}, ${randomG}, ${randomB}, ${hoverCount/10})`;
         });
         grid.appendChild(cell);
 
